@@ -1,0 +1,101 @@
+﻿<Window
+    x:Class="OrnaBot.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:ikw="http://schemas.inkore.net/lib/ui/wpf"
+    xmlns:local="clr-namespace:OrnaBot"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:sys="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:ui="http://schemas.inkore.net/lib/ui/wpf/modern"
+    Title="MainWindow"
+    Width="600"
+    Height="450"
+    ui:TitleBar.Height="36"
+    ui:WindowHelper.SystemBackdropType="Mica"
+    ui:WindowHelper.UseModernWindowStyle="True"
+    mc:Ignorable="d">
+    <ikw:SimpleStackPanel Spacing="4">
+        <ui:SettingsExpander
+            x:Name="settingsCard"
+            VerticalAlignment="Top"
+            Description="The SettingsExpander has the same properties as a Card, and you can set SettingsCard as part of the Items collection."
+            Header="SettingsExpander"
+            IsEnabled="True">
+            <ui:SettingsExpander.HeaderIcon>
+                <ui:FontIcon Glyph="&#xE91B;" />
+            </ui:SettingsExpander.HeaderIcon>
+            <!--  TODO: This should be TwoWay bound but throws compile error in Uno.  -->
+            <ToggleButton x:Name="StartStopButton" Content="运行" />
+
+            <ui:SettingsExpander.Items>
+                <ui:SettingsCard Header="A basic SettingsCard within an SettingsExpander">
+                    <Button Content="Button" />
+                </ui:SettingsCard>
+                <ui:SettingsCard
+                    Description="SettingsCard within an Expander can be made clickable too!"
+                    Header="This item can be clicked"
+                    IsClickEnabled="True" />
+
+                <ui:SettingsCard ContentAlignment="Left">
+                    <Slider
+                        x:Name="Slider3"
+                        AutomationProperties.Name="Slider with ticks"
+                        TickFrequency="10"
+                        TickPlacement="Both" />
+                </ui:SettingsCard>
+
+                <ui:SettingsCard
+                    HorizontalContentAlignment="Left"
+                    ContentAlignment="Vertical"
+                    Description="You can also align your content vertically. Make sure to set the HorizontalAlignment to Left when you do!"
+                    Header="Vertically aligned">
+                    <ui:GridView SelectedIndex="1">
+                        <ui:GridViewItem>
+                            <Border
+                                Width="64"
+                                Height="64"
+                                Background="#0078D4"
+                                CornerRadius="4" />
+                        </ui:GridViewItem>
+                        <ui:GridViewItem>
+                            <Border
+                                Width="64"
+                                Height="64"
+                                Background="#005EB7"
+                                CornerRadius="4" />
+                        </ui:GridViewItem>
+                        <ui:GridViewItem>
+                            <Border
+                                Width="64"
+                                Height="64"
+                                Background="#003D92"
+                                CornerRadius="4" />
+                        </ui:GridViewItem>
+                        <ui:GridViewItem>
+                            <Border
+                                Width="64"
+                                Height="64"
+                                Background="#001968"
+                                CornerRadius="4" />
+                        </ui:GridViewItem>
+                    </ui:GridView>
+                </ui:SettingsCard>
+
+            </ui:SettingsExpander.Items>
+        </ui:SettingsExpander>
+        <RichTextBox
+            x:Name="textBox"
+            AcceptsReturn="True"
+            HorizontalScrollBarVisibility="Auto"
+            IsInactiveSelectionHighlightEnabled="False"
+            IsReadOnly="False"
+            IsReadOnlyCaretVisible="False"
+            IsUndoEnabled="True"
+            SelectionOpacity="0.4"
+            SpellCheck.IsEnabled="False"
+            VerticalScrollBarVisibility="Auto" />
+
+    </ikw:SimpleStackPanel>
+
+</Window>
